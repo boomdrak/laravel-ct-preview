@@ -1,18 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { API_URL } from '@/const';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import { useCookies } from 'react-cookie';
 import LoginSchema, { ZLoginSchema } from '@/zod/LoginSchema';
+import { toast } from 'react-hot-toast';
 
-type appProps = {
-  email: string;
-  password?: string;
-};
-
-export const SignInForm: FunctionComponent<appProps> = () => {
-  const [setCookie] = useCookies(['access_token']);
+export const SignInForm: FunctionComponent = () => {
+  const [cookies, setCookie] = useCookies(['access_token']);
 
   const {
     register,
@@ -29,6 +25,7 @@ export const SignInForm: FunctionComponent<appProps> = () => {
     try {
       const dataToSend = { email: data.email, password: data.password };
       response = await axios.post(`${API_URL}login`, dataToSend);
+      toast.success(`Login successfull! Welcome, ${data.email}`);
       setCookie('access_token', response.data.access_token);
     } catch (e) {
       const error = e as AxiosResponse;
@@ -41,16 +38,13 @@ export const SignInForm: FunctionComponent<appProps> = () => {
           formError.message = error?.response?.data?.message;
         }
       }
+      toast.error('Login failed..: ' + formError.message);
       setError('serverError', formError);
     }
   };
 
-  const onFormError: SubmitErrorHandler<ZLoginSchema> = e => {
-    console.log('error');
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit, onFormError)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label
           htmlFor="email"

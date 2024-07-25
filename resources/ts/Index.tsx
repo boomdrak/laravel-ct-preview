@@ -3,6 +3,7 @@ import Main from '@/Main';
 import { BrowserRouter } from 'react-router-dom';
 import '../css/app.css';
 import { CookiesProvider } from 'react-cookie';
+import { Toast } from '@/component/TailwindToaster';
 
 const targetElement = document.getElementById('root');
 if (targetElement !== null) {
@@ -10,6 +11,7 @@ if (targetElement !== null) {
   root.render(
     <CookiesProvider defaultSetOptions={{ path: '/', secure: true }}>
       <BrowserRouter>
+        <Toast />
         <Main />
       </BrowserRouter>
     </CookiesProvider>
