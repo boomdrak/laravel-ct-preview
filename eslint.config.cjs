@@ -7,6 +7,7 @@ module.exports = [
     plugins: {
       react,
     },
+    parser: 'babel-eslint',
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
@@ -20,6 +21,8 @@ module.exports = [
     rules: {
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
+      'prefer-template': [true, 'allow-single-concat'],
+      'no-useless-concat': true,
     },
   },
 ];
