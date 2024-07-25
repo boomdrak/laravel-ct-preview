@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { API_URL } from '@/const';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import { useCookies } from 'react-cookie';
+import LoginSchema, { ZLoginSchema } from '@/zod/LoginSchema';
 
 type appProps = {
   email: string;
@@ -12,32 +12,18 @@ type appProps = {
 };
 
 export const SignInForm: FunctionComponent<appProps> = () => {
-  const [cookies, setCookie] = useCookies(['access_token']);
-
-  const schema = z.object({
-    email: z
-      .string()
-      .min(1, { message: 'Email is required' })
-      .email('Invalid email address'),
-    password: z
-      .string()
-      .min(6, { message: 'Password must be at least 8 characters' }),
-    serverError: z.void(),
-  });
-
-  //extract the inferred type from schema
-  type LoginSchema = z.infer<typeof schema>;
+  const [setCookie] = useCookies(['access_token']);
 
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<LoginSchema>({
-    resolver: zodResolver(schema),
+  } = useForm<ZLoginSchema>({
+    resolver: zodResolver(LoginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginSchema> = async data => {
+  const onSubmit: SubmitHandler<ZLoginSchema> = async data => {
     console.log(data);
     var response: AxiosResponse;
     try {
@@ -59,7 +45,7 @@ export const SignInForm: FunctionComponent<appProps> = () => {
     }
   };
 
-  const onFormError: SubmitErrorHandler<LoginSchema> = e => {
+  const onFormError: SubmitErrorHandler<ZLoginSchema> = e => {
     console.log('error');
   };
 
