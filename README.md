@@ -1,5 +1,8 @@
-<div style="width: 100%;">
-  <a href="https://github.com/nikolalsvk/custom-readme-styles/blame/main/hello-animated-color-scheme.svg">
-    <img src="readme.svg" style="width: 100%;" alt="Click to see the source">
-  </a>
-</div>
+<p align="center"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></p>
+</p>
+
+![alt text](image-1.png)
+
+## Please read this README file
+
+<a href="https://laravel.fi" target="_blank">README.html</a>
