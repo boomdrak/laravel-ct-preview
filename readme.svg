@@ -209,7 +209,7 @@
                               ## Excerpt from windws hosts file
                               [C:\Windows\System32\drivers\etc\hosts]
                             </li>
-                            <li class="flex items-center">&nbsp;</li>
+                            <li class="flex items-center"></li>
                             <li class="flex items-center">
                               127.0.0.1 database.herd.test
                             </li>
@@ -300,36 +300,36 @@
                         </li>
                         <li class="flex items-center">composer install</li>
                         <li class="flex items-center">yarn</li>
-                        <li class="flex items-center">&nbsp;</li>
+                        <li class="flex items-center"></li>
                         <li class="flex items-center text-sky-400">
                           ## Lint PHP code with pint
                         </li>
                         <li class="flex items-center">
                           php vendor/bin/pint --test -v
                         </li>
-                        <li class="flex items-center">&nbsp;</li>
+                        <li class="flex items-center"></li>
                         <li class="flex items-center text-sky-400">
                           ## Lint JS code with eslint
                         </li>
                         <li class="flex items-center">yarn lint</li>
-                        <li class="flex items-center">&nbsp;</li>
+                        <li class="flex items-center"></li>
                         <li class="flex items-center text-sky-400">
                           ## Run test cases
                         </li>
                         <li class="flex items-center">php artisan test</li>
-                        <li class="flex items-center">&nbsp;</li>
+                        <li class="flex items-center"></li>
                         <li class="flex items-center text-sky-400">
                           ## Seed datbase
                         </li>
                         <li class="flex items-center">php artisan db:seed</li>
-                        <li class="flex items-center">&nbsp;</li>
+                        <li class="flex items-center"></li>
                         <li class="flex items-center text-sky-400">
                           ## Start dev server
                         </li>
                         <li class="flex items-center">yarn dev</li>
                       </ul>
                       <span class="text-yellow-500">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
                       </span>
                     </span>
                   </span>
@@ -398,12 +398,12 @@
                   Settings page
                 </li>
                 <li class="flex items-center"></li>
-                <li class="flex items-center">&nbsp;</li>
+                <li class="flex items-center"></li>
                 &#9634; rydde i kode: fjerne ubukt kode, filer og dependencies
-                <li class="flex items-center">&nbsp;</li>
+                <li class="flex items-center"></li>
                 &#9634; Handle request timeoui sanctum 401 { "message":
                 "Unauthenticated." }
-                <li class="flex items-center">&nbsp;</li>
+                <li class="flex items-center"></li>
                 &#9634; rydde i kode: es lint no-conosole.log
               </ul>
             </div>
