@@ -275,13 +275,13 @@
                                 <li class="flex gap-x-3">
                                     <span class="">
                                         <span class=""> Herd gives this site URL: <a href="https://laravel-ct-preview.test/" target="_blank">https://laravel-ct-preview.test/</a>
-                                            <br /> This project was buildt using Laravel Herd and uses Vite bulder with React front-end rendering. For simpicity db storage is set to sqlite3. The frontend uses Typescript for better code quality. </span>
+                                            </br /> This project was buildt using Laravel Herd and uses Vite bulder with React front-end rendering. For simpicity db storage is set to sqlite3. The frontend uses Typescript for better code quality. </span>
                                         <code class="mt-5 text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6">
                                             <span class="flex gap-4">
                                                 <span class="shrink-0 text-gray-500"></span>
                                                 <span class="flex-1">
-                                                    <span> Excerpt from windws hosts file [C:\Windows\System32\drivers\etc\hosts] <br />
-                                                        <br /> 127.0.0.1 database.herd.test <br /> 127.0.0.1 laravel-ct-preview.test </span>
+                                                    <span> Excerpt from windws hosts file [C:\Windows\System32\drivers\etc\hosts] </br />
+                                                        </br /> 127.0.0.1 database.herd.test </br /> 127.0.0.1 laravel-ct-preview.test </span>
                                                     <span class="text-yellow-500"> laravel/dusk </span>
                                                 </span>
                                             </span>
@@ -319,13 +319,13 @@
                                     <span class="flex-1">
                                         <span>
                                             <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
-                                                <li class="flex items-center"> composer install <br>
-                                                    <br> yarn <br>
-                                                    <br> ## Lint PHP code with pint <br> php vendor/bin/pint --test -v <br>
-                                                    <br> ## Lint JS code with eslint <br> yarn lint <br>
-                                                    <br> ## Run test cases <br> ## php artisan test <br>
-                                                    <br> ## Seed datbase <br>
-                                                    <br> php artisan db:seed <br>
+                                                <li class="flex items-center"> composer install </br>
+                                                    <//br> yarn </br>
+                                                    </br> ## Lint PHP code with pint </br> php vendor/bin/pint --test -v </br>
+                                                    </br> ## Lint JS code with eslint </br> yarn lint </br>
+                                                    </br> ## Run test cases </br> ## php artisan test </br>
+                                                    </br> ## Seed datbase </br>
+                                                    </br> php artisan db:seed </br>
                                                 </li>
                                             </ul>
                                             <span class="text-yellow-500">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -359,13 +359,13 @@
                                     <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#f59e0b" viewBox="0 0 20 20">
                                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
-                                    <br>rydde i kode: fjerne ubukt kode, filer og dependencies <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#f59e0b" viewBox="0 0 20 20">
+                                    </br>rydde i kode: fjerne ubukt kode, filer og dependencies <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#f59e0b" viewBox="0 0 20 20">
                                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
-                                    <br>rydde i kode: es lint no-conosole.log <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#f59e0b" viewBox="0 0 20 20">
+                                    </br>rydde i kode: es lint no-conosole.log <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#f59e0b" viewBox="0 0 20 20">
                                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
                                     </svg>
-                                    <br>Handle request timeoui sanctum 401 { "message": "Unauthenticated." }
+                                    </br>Handle request timeoui sanctum 401 { "message": "Unauthenticated." }
                                 </li>
                             </ul>
                         </div>
