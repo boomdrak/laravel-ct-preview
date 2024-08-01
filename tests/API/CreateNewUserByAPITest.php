@@ -2,10 +2,9 @@
 
 namespace Tests\API;
 
-use Tests\TestCase;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class CreateNewUserByAPITest extends TestCase
 {
@@ -21,7 +20,7 @@ class CreateNewUserByAPITest extends TestCase
             'email' => 'test_create_user@api.level',
             'password' => bcrypt(Str::password(16, true, true, false, false)),
         ]);
- 
+
         $response->assertStatus(200);
     }
 }

@@ -12,10 +12,10 @@ class HasAllDatabaseTablesTest extends TestCase
             'users',
             'todo',
             'password_reset_tokens',
-            'sessions'
+            'sessions',
         ];
 
-        foreach($tables as $table) {
+        foreach ($tables as $table) {
             $this->assertTrue(\Illuminate\Support\Facades\Schema::hasTable($table));
         }
     }

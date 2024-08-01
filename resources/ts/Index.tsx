@@ -1,19 +1,19 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Main from '@/Main';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 import '../css/app.css';
+// import 'flatpickr/dist/flatpickr.min.css';
 import { CookiesProvider } from 'react-cookie';
-import { Toast } from '@/component/TailwindToaster';
+import { Toast } from '@/components/TailwindToaster';
 
-const targetElement = document.getElementById('root');
-if (targetElement !== null) {
-  const root = ReactDOM.createRoot(targetElement);
-  root.render(
-    <CookiesProvider defaultSetOptions={{ path: '/', secure: true }}>
-      <BrowserRouter>
-        <Toast />
-        <Main />
-      </BrowserRouter>
-    </CookiesProvider>
-  );
-}
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <CookiesProvider defaultSetOptions={{ path: '/', secure: true }}>
+    {/* <React.StrictMode> */}
+    <Router>
+      <Toast />
+      <App></App>
+    </Router>
+    {/* </React.StrictMode> */}
+  </CookiesProvider>
+);

@@ -1,14 +1,15 @@
 import { FunctionComponent } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import { API_URL } from '@/const';
+import { API_URL } from '@/api/const';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useCookies } from 'react-cookie';
 import LoginSchema, { ZLoginSchema } from '@/zod/LoginSchema';
 import { toast } from 'react-hot-toast';
+import { apiReturn } from '@/types/apiReturn';
 
 export const SignInForm: FunctionComponent = () => {
-  const [cookies, setCookie] = useCookies(['access_token']);
+  const [, setCookie] = useCookies(['access_token']);
 
   const {
     register,
@@ -20,25 +21,28 @@ export const SignInForm: FunctionComponent = () => {
   });
 
   const onSubmit: SubmitHandler<ZLoginSchema> = async data => {
-    console.log(data);
-    var response: AxiosResponse;
+    let response: AxiosResponse;
+
     try {
       const dataToSend = { email: data.email, password: data.password };
       response = await axios.post(`${API_URL}login`, dataToSend);
       toast.success(`Login successfull! Welcome, ${data.email}`);
       setCookie('access_token', response.data.access_token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
     } catch (e) {
-      const error = e as AxiosResponse;
+      const error = e as AxiosError;
+      const errorResponse = error.response as AxiosResponse;
+      const apiReturn: apiReturn = {
+        httpCode: error.response?.status || 400,
+        message: JSON.stringify(errorResponse?.data?.message),
+        success: false,
+      };
       const formError = {
         type: 'server',
         message: 'Unknown error',
       };
-      if (error instanceof AxiosError) {
-        if (error?.response?.data?.message) {
-          formError.message = error?.response?.data?.message;
-        }
-      }
-      toast.error('Login failed..: ' + formError.message);
+      formError.message = apiReturn.message;
+      toast.error(`Login failed..: ${formError.message}`);
       setError('serverError', formError);
     }
   };
@@ -48,7 +52,8 @@ export const SignInForm: FunctionComponent = () => {
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+          className="block mb-2 text-sm"
+          style={{ color: 'rgb(209 213 219' }}
         >
           Email Address
         </label>
@@ -56,6 +61,7 @@ export const SignInForm: FunctionComponent = () => {
           {...register('email')}
           type="email"
           placeholder="example@example.com"
+          autoComplete="on"
           className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
         />
         {errors.email && (
@@ -68,13 +74,14 @@ export const SignInForm: FunctionComponent = () => {
         <div className="flex justify-between mb-2">
           <label
             htmlFor="password"
-            className="text-sm text-gray-600 dark:text-gray-200"
+            className="text-sm"
+            style={{ color: 'rgb(209 213 219' }}
           >
             Password
           </label>
           <a
             href="#"
-            className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline"
+            className="text-sm text-blue-500 focus:outline-none focus:underline hover:underline"
           >
             Forgot password?
           </a>
@@ -83,6 +90,7 @@ export const SignInForm: FunctionComponent = () => {
           {...register('password')}
           type="password"
           placeholder="Your Password"
+          autoComplete="on"
           className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
         />
         {errors.password && (
@@ -95,7 +103,7 @@ export const SignInForm: FunctionComponent = () => {
       <div className="mt-6">
         <button
           type="submit"
-          className="py-2 px-4 flex justify-center items-center  bg-blue-500 hover:bg-blue-500 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+          className="py-2 px-4 flex justify-center items-center  bg-blue-500 hover:bg-blue-500 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"
         >
           {isSubmitting && (
             <svg

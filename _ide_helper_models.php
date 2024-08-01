@@ -16,6 +16,33 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $task_name
+ * @property string|null $task_description
+ * @property bool $task_completed
+ * @property-read \App\Models\User|null $user
+ * @method static \Database\Factories\TodoFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereTaskCompleted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereTaskDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereTaskName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Todo whereUserId($value)
+ */
+	class Todo extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at

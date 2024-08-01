@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class CreateNewUserByModelTest extends TestCase
 {
@@ -15,10 +15,10 @@ class CreateNewUserByModelTest extends TestCase
     {
         $faker = \Faker\Factory::create();
         $name = User::factory([
-                    'name' => $faker->name,
-                    'password' => bcrypt(Str::password(16, true, true, false, false)),
-                    'email' =>'test_create_user@db.level'
-                    ])->create();
+            'name' => $faker->name,
+            'password' => bcrypt(Str::password(16, true, true, false, false)),
+            'email' => 'test_create_user@db.level',
+        ])->create();
 
         $this->assertDatabaseHas('users', [
             'email' => 'test_create_user@db.level',
