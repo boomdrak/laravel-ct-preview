@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 //# API endpoints that are secured by bearer token
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [UserAuthController::class, 'logout']);
-    Route::get('me', [UserAuthController::class, 'me'])->middleware('auth:sanctum');
     Route::get('/', [UserAuthController::class, 'me'])->middleware('auth:sanctum');
 
     //# TODO Section

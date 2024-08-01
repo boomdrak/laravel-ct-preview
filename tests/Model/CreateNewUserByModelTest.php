@@ -4,24 +4,26 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class CreateNewUserByModelTest extends TestCase
 {
-    use RefreshDatabase;
+    //use RefreshDatabase;
 
     public function test_create_new_user_by_model(): void
     {
-        $faker = \Faker\Factory::create();
-        $name = User::factory([
-            'name' => $faker->name,
-            'password' => bcrypt(Str::password(16, true, true, false, false)),
-            'email' => 'test_create_user@db.level',
-        ])->create();
+        $user = User::where(['email' => 'test@test.com']);
+        if ($user) {
+            $newUser = new User;
+            $newUser->email = 'test@test.com';
+            $newUser->name = 'Kenneth';
+            $newUser->password = Hash::make('12345678');
+            $newUser->save();
+        }
 
         $this->assertDatabaseHas('users', [
-            'email' => 'test_create_user@db.level',
+            'email' => 'test@test.com',
         ]);
     }
 }

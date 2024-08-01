@@ -11,22 +11,20 @@ import DefaultLayout from './layout/DefaultLayout';
 import { Todo } from './components/Todo/Todo';
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const { pathname } = useLocation();
+  const [cookies, setCookie] = useCookies(['access_token']);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 100);
-  }, []);
-
-  const [cookies, setCookie] = useCookies(['access_token']);
   const isLoggedIn = async () => {
+    setLoading(true);
     if ((await check(cookies.access_token)) === false) {
       setCookie('access_token', false);
     }
+    setLoading(false);
   };
 
   useEffect(() => {

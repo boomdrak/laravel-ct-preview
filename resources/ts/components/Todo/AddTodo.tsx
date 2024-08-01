@@ -50,7 +50,11 @@ export const AddTodo = (props: IAddTodoProps) => {
       toast.error(tasks.message);
     }
     props.setnewTodoMode(false);
-    props.queryTasks();
+    setTodo({
+      task_name: '',
+      task_description: '',
+    });
+    props.queryTasks(false);
   };
 
   if (!props.addNewMode) return <></>;
@@ -64,6 +68,15 @@ export const AddTodo = (props: IAddTodoProps) => {
             todoChange(e, 'task_name');
           }}
         ></input>
+        <div
+          className={`flex items-center font-medium tracking-wide text-red-500 text-xs`}
+        >
+          {todo.task_name.length === 0 ? (
+            <div>Task name required</div>
+          ) : (
+            <div className="ml-1">&nbsp; </div>
+          )}
+        </div>
       </td>
       <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark xl:pl-11">
         <input
@@ -73,9 +86,13 @@ export const AddTodo = (props: IAddTodoProps) => {
             todoChange(e, 'task_description');
           }}
         ></input>
-        <div className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-          {todo.task_description.length === 0 && (
+        <div
+          className={`flex items-center font-medium tracking-wide text-red-500 text-xs`}
+        >
+          {todo.task_description.length === 0 ? (
             <div>Task description required</div>
+          ) : (
+            <div className="ml-1">&nbsp; </div>
           )}
         </div>
       </td>
@@ -84,7 +101,14 @@ export const AddTodo = (props: IAddTodoProps) => {
         <div className="flex items-center space-x-3.5">
           <button
             onClick={() => {
-              submitNewTodo();
+              if (
+                todo.task_description.length > 0 &&
+                todo.task_name.length > 0
+              ) {
+                submitNewTodo();
+              } else {
+                toast.error('Please fill in name and description');
+              }
             }}
           >
             <IoSaveOutline />

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserAuthController extends Controller
 {
@@ -16,46 +18,40 @@ class UserAuthController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|min:8',
         ]);
-        User::create([
-            'name' => $registerUserData['name'],
-            'email' => $registerUserData['email'],
-            'password' => Hash::make($registerUserData['password']),
-        ]);
+
+        $newUser = new User;
+        $newUser->email = $registerUserData['email'];
+        $newUser->name = $registerUserData['name'];
+        $newUser->password = Hash::make($registerUserData['password']);
+        $newUser->save();
 
         return response()->json([
             'message' => 'User Created',
+            'user' => $newUser,
         ]);
     }
 
     public function login(Request $request)
     {
-        $loginUserData = $request->validate([
+        $credentials = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|min:8',
         ]);
-        $user = User::where('email', $loginUserData['email'])->first();
-        if (! $user || ! Hash::check($loginUserData['password'], $user->password)) {
+
+        if (! Auth::attempt($credentials)) {
             return response()->json([
                 'message' => 'Invalid Credentials',
             ], 401);
         }
-        $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;
+        $user = $request->user();
+
+        $token_name = $request->token_name === null ? $user->name.Str::random(40) : $request->token_name;
+        $tokenObj = $request->user()->createToken($token_name);
 
         return response()->json([
-            'access_token' => $token,
+            'access_token' => $tokenObj->plainTextToken,
+            'token_name' => $token_name,
             'user' => $user,
         ]);
-    }
-
-    public function me()
-    {
-        $user = auth()->user();
-
-        return response()->json([
-            'success' => true,
-            'statusCode' => 200,
-            'message' => 'Authenticated, fetching user info.',
-            'data' => $user,
-        ], 200);
     }
 }
