@@ -10,5 +10,5 @@
 
 <div align="center">
 <h4>Wrote primary README in html, because markdown has limitations and is boring.. So check the link above</h4>
-[README_.md](https://github.com/boomdrak/laravel-ct-preview/READ_.md)
+https://github.com/boomdrak/laravel-ct-preview/blob/master/README_.md
 </div>
