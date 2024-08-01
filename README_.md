@@ -1,7 +1,8 @@
 <p align="center"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></p>
 </p>
 
-![alt text](image-1.png)
+<p align="center"><img src="https://laravel.fi/laravel-login.png" width="400" alt="Laravel Logo"></p>
+</p>
 
 ## Todo
 
@@ -11,6 +12,7 @@
 - ![#FFD700](https://placehold.co/10x10/FFD700/FFD700.png) `Handle request timeoui sanctum 401 {
     "message": "Unauthenticated."
 }`
+
 ## About repo
 
 <p>Code skill and technical preview for Kenneth Hauklien</p>
@@ -27,20 +29,21 @@ Excerpt from windws hosts file [C:\Windows\System32\drivers\etc\hosts]
 127.0.0.1 database.herd.test
 127.0.0.1 laravel-ct-preview.test
 ```
+
 ## Repo showcases the following topics
 
-* Basic API functionallity
-* Testing of code and functions
-* DB / Relation / ORM / Seeder
-* SPA application | React 18, Typescript 5
-* Linting, Pinting (PES PHP standard)
+- Basic API functionallity
+- Testing of code and functions
+- DB / Relation / ORM / Seeder
+- SPA application | React 18, Typescript 5
+- Linting, Pinting (PES PHP standard)
 
 ## Requirements
 
-* Node v20.12.2 or later
-* Yarn v1.22.4
-* Herd / XAMP / Docker (Sails) or other setup with PHP 8.3
-* Composer v2.7.7
+- Node v20.12.2 or later
+- Yarn v1.22.4
+- Herd / XAMP / Docker (Sails) or other setup with PHP 8.3
+- Composer v2.7.7
 
 ## Build steps
 
@@ -49,19 +52,19 @@ Excerpt from windws hosts file [C:\Windows\System32\drivers\etc\hosts]
 ## Download and build modules and vendors
 composer install
 yarn
- 
+
 ## Lint PHP code with pint
 php vendor/bin/pint --test -v
- 
+
 ## Lint JS code with eslint
 yarn lint
- 
+
 ## Run test cases
 php artisan test
- 
+
 ## Seed datbase
 php artisan db:seed
- 
+
 ## Start dev server
 yarn dev
 ```
