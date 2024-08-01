@@ -48,23 +48,29 @@ Excerpt from windws hosts file [C:\Windows\System32\drivers\etc\hosts]
 ## Build steps
 
 ```
-
 ## Download and build modules and vendors
 composer install
 yarn
-
-## Lint PHP code with pint
-php vendor/bin/pint --test -v
-
-## Lint JS code with eslint
-yarn lint
-
-## Run test cases
-php artisan test
-
+ 
+## Migrate database
+php artisan migrate
+ 
 ## Seed datbase
 php artisan db:seed
-
-## Start dev server
+ 
+## Start dev server [must be running for tests to succeed]
 yarn dev
+ 
+## Run PHP tests
+php artisan test
+ 
+## Lint PHP code with pint
+php vendor/bin/pint --test -v
+ 
+## Lint JS code with eslint
+yarn lint
+ 
+## Navigate to: https://laravel-ct-preview.test
+Username: test@test.com
+Password: 12345678
 ```

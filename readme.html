@@ -299,32 +299,46 @@
                         <li class="flex items-center">yarn</li>
                         <li class="flex items-center">&nbsp;</li>
                         <li class="flex items-center text-sky-400">
-                          ## Lint PHP code with pint
+                          ## Migrate database
                         </li>
-                        <li class="flex items-center">
-                          php vendor/bin/pint --test -v
-                        </li>
-                        <li class="flex items-center">&nbsp;</li>
-                        <li class="flex items-center text-sky-400">
-                          ## Lint JS code with eslint
-                        </li>
-                        <li class="flex items-center">yarn lint</li>
-                        <li class="flex items-center">&nbsp;</li>
-                        <li class="flex items-center text-sky-400">
-                          ## Run test cases
-                        </li>
-                        <li class="flex items-center">php artisan test</li>
+                        <li class="flex items-center">php artisan migrate</li>
                         <li class="flex items-center">&nbsp;</li>
                         <li class="flex items-center text-sky-400">
                           ## Seed datbase
                         </li>
                         <li class="flex items-center">php artisan db:seed</li>
                         <li class="flex items-center">&nbsp;</li>
-                        <li class="flex items-center text-sky-400">
+                        <li class="text-sky-400">
                           ## Start dev server
+                          <span class="text-pink-400 font-black">
+                            [must be running for tests to succeed]
+                          </span>
                         </li>
                         <li class="flex items-center">yarn dev</li>
                       </ul>
+                      <li class="flex items-center">&nbsp;</li>
+                      <li class="flex items-center text-sky-400">
+                        ## Run PHP tests
+                      </li>
+                      <li class="flex items-center">php artisan test</li>
+                      <li class="flex items-center">&nbsp;</li>
+                      <li class="flex items-center text-sky-400">
+                        ## Lint PHP code with pint
+                      </li>
+                      <li class="flex items-center">
+                        php vendor/bin/pint --test -v
+                      </li>
+                      <li class="flex items-center">&nbsp;</li>
+                      <li class="flex items-center text-sky-400">
+                        ## Lint JS code with eslint
+                      </li>
+                      <li class="flex items-center">yarn lint</li>
+                      <li class="flex items-center">&nbsp;</li>
+                      <li class="flex items-center text-pink-400">
+                        ## Navigate to: https://laravel-ct-preview.test
+                      </li>
+                      <li class="flex items-center">Username: test@test.com</li>
+                      <li class="flex items-center">Password: 12345678</li>
                       <span class="text-yellow-500">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       </span>

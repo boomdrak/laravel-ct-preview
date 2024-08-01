@@ -186,9 +186,9 @@ export const Todo = () => {
                   <tr key={nanoid()}>
                     <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                       <h5 className="font-medium text-black dark:text-white">
-                        {todo.user.name} -- {todo.task_name}
+                        User:{todo.user.name} {todo.task_name}
                       </h5>
-                      <p className="text-sm">${todo.task_description}</p>
+                      <p className="text-sm">{todo.task_description}</p>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                       <p className="text-black dark:text-white">
