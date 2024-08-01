@@ -4,6 +4,11 @@
 <p align="center"><img src="https://laravel.fi/laravel-login.png" width="400" alt="Laravel Logo"></p>
 </p>
 
-### Please read this README file
+<div align="center">
+ <h3><a href="https://laravel.fi"target="_blank" rel="noopener noreferrer">Please READ@me :) </a></h3>
+</div>
 
-<h3><a href="https://laravel.fi"target="_blank" rel="noopener noreferrer">README.html</a></h3>
+<div align="center">
+<h4>Wrote primary README in html, because markdown has limitations and is boring.. So check the link above</h4>
+[README_.md](https://github.com/boomdrak/laravel-ct-preview/READ_.md)
+</div>
