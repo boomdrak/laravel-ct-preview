@@ -31,7 +31,7 @@ function App() {
     isLoggedIn();
   }, []);
 
-  if (cookies.access_token === false) {
+  if (!cookies.access_token) {
     return <Login />;
   }
 
