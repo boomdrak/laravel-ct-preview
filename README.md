@@ -5,7 +5,7 @@
 </p>
 
 <div align="center">
- <h3><a href="https://laravel.fi"target="_blank" rel="noopener noreferrer">Please READ@me :) </a></h3>
+ <h3><a href="https://laravel.fi/readme.html"target="_blank" rel="noopener noreferrer">Please READ@me :) </a></h3>
 </div>
 
 <div align="center">

@@ -14,7 +14,7 @@ class CreateNewUserByModelTest extends TestCase
     public function test_create_new_user_by_model(): void
     {
         $user = User::where(['email' => 'test@test.com']);
-        if ($user) {
+        if (! $user) {
             $newUser = new User;
             $newUser->email = 'test@test.com';
             $newUser->name = 'Kenneth';
